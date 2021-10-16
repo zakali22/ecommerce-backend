@@ -16,7 +16,7 @@ import { withAuth, session } from './auth';
 import 'dotenv/config';
 
 const DATABASE_URL =
-  process.env.DATABASE_URL || `postgres://postgres@localhost:5432/postgres`;
+  process.env.DATABASE_URL || `postgres://postgres:Londonishome54@localhost:5432/postgres?sslaccept=accept_invalid_certs&schema=public`;
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
