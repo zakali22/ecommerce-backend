@@ -13,14 +13,25 @@ import { lists } from './schema';
 
 // Keystone auth is configured separately - check out the basic auth setup we are importing from our auth file.
 import { withAuth, session } from './auth';
+import 'dotenv/config';
+
+const DATABASE_URL =
+  process.env.DATABASE_URL || `postgres://postgres@localhost:5432/postgres`;
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
   config({
     // the db sets the database provider - we're using sqlite for the fastest startup experience
     db: {
-      provider: 'sqlite',
-      url: 'file:./keystone.db',
+      provider: 'postgresql',
+      useMigrations: true,
+      url: DATABASE_URL,
+    },
+    server: {
+      // cors: {
+      //   credentials: true,
+      //   origin: process.env.FRONTEND_URL
+      // }
     },
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
     ui: {
