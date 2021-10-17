@@ -13,7 +13,12 @@ import { createAuth } from '@keystone-next/auth';
 import { statelessSessions } from '@keystone-next/keystone/session';
 import 'dotenv/config';
 
-let sessionSecret = process.env.SESSION_SECRET;
+let sessionSecret =
+  process.env.SESSION_SECRET ||
+  require('crypto')
+    .randomBytes(32)
+    .toString('base64')
+    .replace(/[^a-zA-Z0-9]+/g, '');
 
 // Here is a best practice! It's fine to not have provided a session secret in dev,
 // however it should always be there in production.
@@ -23,13 +28,10 @@ if (!sessionSecret) {
       'The SESSION_SECRET environment variable must be set in production'
     );
   } else {
-    sessionSecret = '-- DEV COOKIE SECRET; CHANGE ME --';
+    sessionSecret = 'sdasdasd45435v65yvrttry4vg34';
   }
 }
 
-// Here we define how auth relates to our schemas.
-// What we are saying here is that we want to use the list `User`, and to log in
-// we will need their email and password.
 const { withAuth } = createAuth({
   listKey: 'User',
   identityField: 'email',
