@@ -18,7 +18,7 @@ import 'dotenv/config';
 const host = 'https://ecommerce-backend-phi.vercel.app/'
 
 const DATABASE_URL =
-  process.env.DATABASE_URL || `postgresql://postgres:Londonishome54%2F@localhost:5432/postgres`;
+  process.env.DATABASE_URL || `postgresql://postgres:Londonishome54%2F@localhost:5432/postgres?sslaccept=accept_invalid_certs&schema=public&connect_timeout=0`;
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
