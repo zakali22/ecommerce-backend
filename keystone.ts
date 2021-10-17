@@ -15,8 +15,10 @@ import { lists } from './schema';
 import { withAuth, session } from './auth';
 import 'dotenv/config';
 
+const host = 'https://ecommerce-backend-phi.vercel.app/'
+
 const DATABASE_URL =
-  process.env.DATABASE_URL || `postgres://postgres@localhost:5432/postgres?sslaccept=accept_invalid_certs&schema=public`;
+  process.env.DATABASE_URL || `postgres://postgres@${host}:5432/postgres?sslaccept=accept_invalid_certs&schema=public`;
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
