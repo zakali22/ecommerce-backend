@@ -40,7 +40,7 @@ export default withAuth(
     graphql: {
       cors: {
         credentials: true,
-        origin: 'https://sick-fits-ecommerce-backend.herokuapp.com/api/graphql',
+        origin: FRONTEND_URL,
         allowedHeaders: ['Content-Type', 'Authorization'],
         preflightContinue: true
       }
