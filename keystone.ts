@@ -33,7 +33,7 @@ export default withAuth(
       cors: {
         credentials: true,
         allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
-        origin: FRONTEND_URL,
+        origin: [FRONTEND_URL, 'https://studio.apollographql.com'],
         methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
         preflightContinue: false,
         maxAge: 86400
@@ -43,7 +43,7 @@ export default withAuth(
     graphql: {
       cors: {
         credentials: true,
-        origin: FRONTEND_URL,
+        origin: [FRONTEND_URL, 'https://studio.apollographql.com'],
         allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
         methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
         preflightContinue: false,
