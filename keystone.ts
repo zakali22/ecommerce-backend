@@ -43,7 +43,6 @@ export default withAuth(
         methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
         preflightContinue: false,
         maxAge: 86400
-        
       }
     },
     graphql: {
