@@ -18,7 +18,7 @@ import 'dotenv/config';
 const host = 'https://ecommerce-backend-phi.vercel.app/'
 
 let DATABASE_URL = 'postgres://ytgljqrwusenvi:bc9fe5e0c5321d5772936e073126797e86e90ca30fd668d89b9a5817e3fe3af2@ec2-52-203-164-61.compute-1.amazonaws.com:5432/dat8ko9h7c54uo'
-let FRONTEND_URL = 'https://ecommerce-nextjs-one.vercel.app/'
+let FRONTEND_URL = 'https://ecommerce-nextjs-one.vercel.app'
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
