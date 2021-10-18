@@ -11,6 +11,7 @@ import { createAuth } from '@keystone-next/auth';
 
 // See https://keystonejs.com/docs/apis/session#session-api for the session docs
 import { statelessSessions } from '@keystone-next/keystone/session';
+import { sendPasswordEmail } from './lib/mail';
 import 'dotenv/config';
 
 let sessionSecret =
@@ -35,12 +36,18 @@ if (!sessionSecret) {
 const { withAuth } = createAuth({
   listKey: 'User',
   identityField: 'email',
-  sessionData: 'name',
+  sessionData: 'id name email',
   secretField: 'password',
   initFirstItem: {
     // If there are no items in the database, keystone will ask you to create
     // a new user, filling in these fields.
     fields: ['name', 'email', 'password'],
+  },
+  passwordResetLink: {
+    async sendToken(args) {
+      await sendPasswordEmail(args.token, args.identity);
+      console.log(args);
+    },
   },
 });
 

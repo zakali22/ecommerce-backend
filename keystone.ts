@@ -10,6 +10,7 @@ import { config } from '@keystone-next/keystone';
 
 // Look in the schema file for how we define our lists, and how users interact with them through graphql or the Admin UI
 import { lists } from './schema';
+// import { insertSeedData } from './seed-data';
 
 // Keystone auth is configured separately - check out the basic auth setup we are importing from our auth file.
 import { withAuth, session } from './auth';
@@ -28,6 +29,11 @@ export default withAuth(
       provider: 'postgresql',
       useMigrations: true,
       url: DATABASE_URL,
+      async onConnect(keystone) {
+        if (process.argv.includes('--seed-data')) {
+          // await insertSeedData(keystone);
+        }
+      },
     },
     server: {
       cors: {
