@@ -32,7 +32,17 @@ export default withAuth(
     server: {
       cors: {
         credentials: true,
-        origin: [FRONTEND_URL]
+        origin: FRONTEND_URL,
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        preflightContinue: true
+      }
+    },
+    graphql: {
+      cors: {
+        credentials: true,
+        origin: 'https://sick-fits-ecommerce-backend.herokuapp.com/api/graphql',
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        preflightContinue: true
       }
     },
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
