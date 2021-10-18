@@ -13,15 +13,12 @@ generator client {
 }
 
 model User {
-  id                      String     @id @default(cuid())
-  name                    String     @default("")
-  email                   String     @unique @default("")
-  password                String
-  cart                    CartItem[] @relation("CartItem_user")
-  order                   Order[]    @relation("Order_user")
-  passwordResetToken      String?
-  passwordResetIssuedAt   DateTime?
-  passwordResetRedeemedAt DateTime?
+  id       String     @id @default(cuid())
+  name     String     @default("")
+  email    String     @unique @default("")
+  password String
+  cart     CartItem[] @relation("CartItem_user")
+  order    Order[]    @relation("Order_user")
 }
 
 model Product {
