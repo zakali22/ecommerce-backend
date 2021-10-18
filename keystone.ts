@@ -32,8 +32,9 @@ export default withAuth(
     server: {
       cors: {
         credentials: true,
+        allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
         origin: FRONTEND_URL,
-        methods: ['GET', 'PUT', 'DELETE', 'POST', 'OPTIONS'],
+        methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
         preflightContinue: true,
         maxAge: 86400
         
@@ -43,7 +44,8 @@ export default withAuth(
       cors: {
         credentials: true,
         origin: FRONTEND_URL,
-        methods: ['GET', 'PUT', 'DELETE', 'POST', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
+        methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
         preflightContinue: true,
         maxAge: 86400
       }
