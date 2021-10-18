@@ -35,7 +35,7 @@ export default withAuth(
         allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
         origin: FRONTEND_URL,
         methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
-        preflightContinue: true,
+        preflightContinue: false,
         maxAge: 86400
         
       }
@@ -46,7 +46,7 @@ export default withAuth(
         origin: FRONTEND_URL,
         allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
         methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
-        preflightContinue: true,
+        preflightContinue: false,
         maxAge: 86400
       }
     },
