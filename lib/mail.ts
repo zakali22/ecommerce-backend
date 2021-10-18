@@ -85,9 +85,4 @@ export async function sendPasswordEmail(
       to
     ),
   })) as MailResponse;
-
-  if (process.env.MAIL_HOST.includes('mailtrap')) {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    console.log(`Preview email sent: ${getTestMessageUrl(info)}`);
-  }
 }

@@ -13,6 +13,7 @@
     "@keystone-next/cloudinary": "^9.0.0",
     "@keystone-next/fields-document": "^11.0.0",
     "@keystone-next/keystone": "^26.1.0",
+    "@types/nodemailer": "^6.4.4",
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "nodemailer": "^6.7.0",
