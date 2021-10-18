@@ -34,7 +34,6 @@ export default withAuth(
         credentials: true,
         origin: FRONTEND_URL,
         methods: ['GET', 'PUT', 'DELETE', 'POST', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
         preflightContinue: true,
         maxAge: 86400
         
@@ -45,7 +44,6 @@ export default withAuth(
         credentials: true,
         origin: FRONTEND_URL,
         methods: ['GET', 'PUT', 'DELETE', 'POST', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
         preflightContinue: true,
         maxAge: 86400
       }
