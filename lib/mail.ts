@@ -2,8 +2,8 @@ import { createTransport, getTestMessageUrl } from 'nodemailer';
 import 'dotenv/config';
 
 const transport = createTransport({
-  host: process.env.MAIL_HOST,
-  port: process.env.MAIL_PORT,
+  host: "smtp.mailtrap.io",
+  port: Number(process.env.MAIL_PORT),
   auth: {
     user: process.env.MAIL_USER,
     pass: process.env.MAIL_PASS,
@@ -84,5 +84,5 @@ export async function sendPasswordEmail(
       `${process.env.FRONTEND_URL}/reset?token=${resetToken}`,
       to
     ),
-  })) as MailResponse;
+  }));
 }
