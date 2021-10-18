@@ -17,13 +17,8 @@ import 'dotenv/config';
 
 const host = 'https://ecommerce-backend-phi.vercel.app/'
 
-let DATABASE_URL;
-// console.log(process.env.NODE_ENV)
-// if (process.env.NODE_ENV === 'production') {
-  DATABASE_URL = 'postgres://ytgljqrwusenvi:bc9fe5e0c5321d5772936e073126797e86e90ca30fd668d89b9a5817e3fe3af2@ec2-52-203-164-61.compute-1.amazonaws.com:5432/dat8ko9h7c54uo'
-// } else {
-//   DATABASE_URL = 'postgresql://postgres:Londonishome54%2F@localhost:5432/postgres?sslaccept=accept_invalid_certs&schema=public&connect_timeout=0'
-// }
+let DATABASE_URL = 'postgres://ytgljqrwusenvi:bc9fe5e0c5321d5772936e073126797e86e90ca30fd668d89b9a5817e3fe3af2@ec2-52-203-164-61.compute-1.amazonaws.com:5432/dat8ko9h7c54uo'
+let FRONTEND_URL = 'https://ecommerce-nextjs-frontend-h0mb0scg3-zakali22.vercel.app/'
 
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
@@ -35,10 +30,10 @@ export default withAuth(
       url: DATABASE_URL,
     },
     server: {
-      // cors: {
-      //   credentials: true,
-      //   origin: process.env.FRONTEND_URL
-      // }
+      cors: {
+        credentials: true,
+        origin: [FRONTEND_URL]
+      }
     },
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
     ui: {
