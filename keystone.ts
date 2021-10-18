@@ -33,16 +33,21 @@ export default withAuth(
       cors: {
         credentials: true,
         origin: FRONTEND_URL,
+        methods: ['GET', 'PUT', 'DELETE', 'POST', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
-        preflightContinue: true
+        preflightContinue: true,
+        maxAge: 86400
+        
       }
     },
     graphql: {
       cors: {
         credentials: true,
         origin: FRONTEND_URL,
+        methods: ['GET', 'PUT', 'DELETE', 'POST', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization'],
-        preflightContinue: true
+        preflightContinue: true,
+        maxAge: 86400
       }
     },
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
