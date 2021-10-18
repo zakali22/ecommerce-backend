@@ -43,7 +43,7 @@ export default withAuth(
     graphql: {
       cors: {
         credentials: true,
-        origin: [FRONTEND_URL, 'https://studio.apollographql.com'],
+        origin: '*',
         allowedHeaders: ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
         methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
         preflightContinue: false,
