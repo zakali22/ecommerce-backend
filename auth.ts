@@ -49,6 +49,12 @@ const { withAuth } = createAuth({
   //     console.log(args);
   //   },
   // },
+  passwordResetLink: {
+    sendToken: async ({ itemId, identity, token, context }) => {
+      await sendPasswordEmail(token, identity);
+    },
+    tokensValidForMins: 60,
+  },
 });
 
 // This defines how long people will remain logged in for.
