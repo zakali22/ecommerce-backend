@@ -32,7 +32,7 @@ export default withAuth(
     server: {
       cors: {
         credentials: true,
-        origin: "*"
+        origin: [FRONTEND_URL]
       }
     },
     // This config allows us to set up features of the Admin UI https://keystonejs.com/docs/apis/config#ui
