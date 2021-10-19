@@ -2,6 +2,8 @@
 # Modify your Keystone config when you want to change this.
 
 type Mutation {
+  addToCart(productId: ID!): CartItem
+  checkout(token: String!): Order
   sendUserPasswordResetLink(email: String!): Boolean!
   redeemUserPasswordResetToken(
     email: String!
