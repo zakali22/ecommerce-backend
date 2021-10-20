@@ -14,13 +14,7 @@ import { statelessSessions } from '@keystone-next/keystone/session';
 import { sendPasswordEmail } from './lib/mail';
 import 'dotenv/config';
 
-let sessionSecret =
-  process.env.SESSION_SECRET ||
-  require('crypto')
-    .randomBytes(32)
-    .toString('base64')
-    .replace(/[^a-zA-Z0-9]+/g, '');
-
+let sessionSecret = process.env.SESSION_SECRET
 // Here is a best practice! It's fine to not have provided a session secret in dev,
 // however it should always be there in production.
 if (!sessionSecret) {
