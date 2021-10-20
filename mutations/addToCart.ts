@@ -11,6 +11,12 @@ async function addToCart(
   const user = context.session as Session;
   console.log("User, addToCart")
   console.log(user)
+
+  if(!user) {
+    console.log("User doesn't exist, addToCart")
+    throw new Error('User doesn\'t exist')
+  }
+
   if (!user.itemId) { 
     throw new Error('You must be signed in!');
   }
