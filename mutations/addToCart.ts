@@ -9,6 +9,7 @@ async function addToCart(
   context: KeystoneContext
 ): Promise<any> {
   const user = context.session as Session;
+  console.log("User, addToCart")
   console.log(user)
   if (!user.itemId) { 
     throw new Error('You must be signed in!');
@@ -21,6 +22,7 @@ async function addToCart(
   });
 
   const [existingCartItem] = allCartItems;
+  console.log("ExistingCartItem, addToCart")
   console.log(existingCartItem)
 
   if (existingCartItem) {
