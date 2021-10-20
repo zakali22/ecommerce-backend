@@ -15,7 +15,7 @@ async function addToCart(
 
   console.log("Adding cart....")
   const allCartItems = await context.query.CartItem.findMany({
-    where: { user: { id: { equals: user.itemId } }, product: { id: productId } },
+    where: { user: { id: user.itemId  }, product: { id: productId } },
     resolveFields: 'id,quantity,product'
   });
 
