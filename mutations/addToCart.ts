@@ -14,7 +14,8 @@ async function addToCart(
 
   if(!user) {
     console.log("User doesn't exist, addToCart")
-    throw new Error('User doesn\'t exist')
+
+    throw new Error(`User doesn\'t exist ${context}`)
   }
 
   if (!user.itemId) { 
